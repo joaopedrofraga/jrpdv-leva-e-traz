@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:levaetraz/core/config/jrlt_material.dart';
+import 'package:levaetraz/presentation/auth/login/login_page.dart';
+import 'package:levaetraz/routes.dart';
 
 class JRLT extends StatefulWidget {
   const JRLT({super.key});
@@ -14,16 +16,9 @@ class _JRLTState extends State<JRLT> {
     return MaterialApp(
       title: JRLTMaterial.title,
       theme: JRLTMaterial.getTheme,
-      home: Scaffold(
-        body: LayoutBuilder(
-          builder: (context, constraints) {
-            if (constraints.maxWidth > 700) {
-              return Container(color: Colors.red);
-            } else {
-              return Container(color: Colors.blue);
-            }
-          },
-        ),
+      onGenerateRoute: Routes.generateRoute,
+      home: const Scaffold(
+        body: LoginPage(),
       ),
     );
   }
