@@ -20,6 +20,8 @@ class JRLTMaterial {
               image: AssetImage('assets/images/background.png'),
               fit: BoxFit.cover)));
 
+  static Image logoImage = Image.asset('assets/images/logo.png');
+
   static ThemeData get getTheme => ThemeData(
       textSelectionTheme: TextSelectionThemeData(
           selectionColor: JRLTColors.primaryColor,

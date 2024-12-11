@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levaetraz/core/config/jrlt_material.dart';
+import 'package:levaetraz/presentation/auth/login/desktop_login_page.dart';
+import 'package:levaetraz/presentation/auth/login/mobile_login_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,44 +12,14 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          JRLTMaterial.backgroundImageWidget,
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(30),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Text('Login'),
-                      const SizedBox(height: 16),
-                      TextField(
-                        decoration: const InputDecoration(labelText: 'Usuário'),
-                      ),
-                      const SizedBox(height: 16),
-                      TextField(
-                        decoration: const InputDecoration(labelText: 'Senha'),
-                        obscureText: true,
-                      ),
-                      const SizedBox(height: 16),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/clientes');
-                        },
-                        child: const Text('Entrar'),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+    return Scaffold(body: LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 750) {
+          return const MobileLoginPage();
+        } else {
+          return const DestktopLoginPage();
+        }
+      },
+    ));
   }
 }
