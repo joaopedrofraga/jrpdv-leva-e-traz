@@ -6,6 +6,7 @@ import 'package:levaetraz/core/widgets/button/elevated_button_widget.dart';
 import 'package:levaetraz/core/widgets/input/text_form_field_widget.dart';
 import 'package:levaetraz/core/widgets/sized_box/sized_box_widget.dart';
 import 'package:levaetraz/core/widgets/text/text_widget.dart';
+import 'package:levaetraz/presentation/auth/login/login_validator.dart';
 
 class MobileLoginPage extends StatefulWidget {
   const MobileLoginPage({super.key});
@@ -15,6 +16,8 @@ class MobileLoginPage extends StatefulWidget {
 }
 
 class _MobileLoginPageState extends State<MobileLoginPage> {
+  TextEditingController usuarioTEC = TextEditingController();
+  TextEditingController senhaTEC = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,19 +41,18 @@ class _MobileLoginPageState extends State<MobileLoginPage> {
                           child: JRLTMaterial.logoImage),
                       const SizedBoxWidget.lg(),
                       TextFormFieldWidget(
-                          controller: TextEditingController(),
-                          inputLabel: 'Usuário'),
+                          controller: usuarioTEC, inputLabel: 'Usuário'),
                       const SizedBoxWidget.lg(),
                       TextFormFieldWidget(
-                          controller: TextEditingController(),
-                          inputLabel: 'Senha'),
+                          controller: senhaTEC, inputLabel: 'Senha'),
                       const SizedBoxWidget.xl(),
-                      const ElevatedButtonWidget(
-                          label: 'RECARREGAR USUÁRIOS',
-                          isPrimary: false,
-                          height: 35),
-                      const SizedBoxWidget.md(),
-                      const ElevatedButtonWidget(label: 'ENTRAR'),
+                      ElevatedButtonWidget(
+                        label: 'ENTRAR',
+                        onPressed: () => LoginValidator().validar(
+                            usuario: usuarioTEC.text,
+                            senha: senhaTEC.text,
+                            context: context),
+                      ),
                       const SizedBoxWidget.xxxl(),
                       TextWidget.small('jrpdv.com.br ( 47 3393 - 6088 )')
                     ],

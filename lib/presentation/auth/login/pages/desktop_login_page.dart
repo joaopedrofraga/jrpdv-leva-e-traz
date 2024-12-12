@@ -55,11 +55,6 @@ class _DestktopLoginPageState extends State<DestktopLoginPage> {
                               controller: TextEditingController(),
                               inputLabel: 'Senha'),
                           const SizedBoxWidget.xl(),
-                          const ElevatedButtonWidget(
-                              label: 'RECARREGAR USUÁRIOS',
-                              isPrimary: false,
-                              height: 35),
-                          const SizedBoxWidget.md(),
                           const ElevatedButtonWidget(label: 'ENTRAR'),
                           const SizedBoxWidget.xxxl(),
                           TextWidget.small('jrpdv.com.br ( 47 3393 - 6088 )')
