@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:levaetraz/presentation/auth/login/desktop_login_page.dart';
-import 'package:levaetraz/presentation/auth/login/mobile_login_page.dart';
+import 'package:levaetraz/presentation/auth/login/pages/desktop_login_page.dart';
+import 'package:levaetraz/presentation/auth/login/pages/mobile_login_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

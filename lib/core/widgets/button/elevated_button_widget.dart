@@ -13,7 +13,7 @@ class ElevatedButtonWidget extends StatefulWidget {
       required this.label,
       this.onPressed = defaultOnPressed,
       this.isPrimary = true,
-      this.height = 50,
+      this.height = 55,
       this.width = double.infinity});
 
   static void defaultOnPressed() {}
