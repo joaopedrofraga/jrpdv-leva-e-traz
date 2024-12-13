@@ -8,7 +8,8 @@ void mostrarSnackbar(
     required bool isError}) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       elevation: 7,
-      content: TextWidget.bold(mensagem, color: JRLTColors.secundaryColor),
+      content: TextWidget.bold(mensagem,
+          color: JRLTColors.secundaryColor, textAlign: TextAlign.center),
       backgroundColor:
           isError ? JRLTColors.errorColor : JRLTColors.successColor));
 }

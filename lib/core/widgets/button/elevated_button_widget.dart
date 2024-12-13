@@ -8,13 +8,15 @@ class ElevatedButtonWidget extends StatefulWidget {
   final bool isPrimary;
   final double height;
   final double width;
+  final bool isLoading;
   const ElevatedButtonWidget(
       {super.key,
       required this.label,
       this.onPressed = defaultOnPressed,
       this.isPrimary = true,
       this.height = 55,
-      this.width = double.infinity});
+      this.width = double.infinity,
+      this.isLoading = false});
 
   static void defaultOnPressed() {}
 
@@ -29,17 +31,19 @@ class _ElevatedButtonWidgetState extends State<ElevatedButtonWidget> {
       height: widget.height,
       width: widget.width,
       child: ElevatedButton(
-        onPressed: widget.onPressed,
+        onPressed: widget.isLoading ? null : widget.onPressed,
         style: ElevatedButton.styleFrom(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             backgroundColor: widget.isPrimary
                 ? JRLTColors.primaryColor
                 : JRLTColors.secundaryColor),
-        child: TextWidget.bold(widget.label,
-            color: widget.isPrimary
-                ? JRLTColors.secundaryColor
-                : JRLTColors.primaryColor),
+        child: widget.isLoading
+            ? const CircularProgressIndicator()
+            : TextWidget.bold(widget.label,
+                color: widget.isPrimary
+                    ? JRLTColors.secundaryColor
+                    : JRLTColors.primaryColor),
       ),
     );
   }
