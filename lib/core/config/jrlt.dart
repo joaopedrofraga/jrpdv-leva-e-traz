@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:levaetraz/core/config/jrlt_material.dart';
 import 'package:levaetraz/presentation/auth/login/login_page.dart';
+import 'package:levaetraz/presentation/orders/clientes/clientes_page.dart';
 import 'package:levaetraz/routes.dart';
 
 class JRLT extends StatefulWidget {
@@ -18,7 +19,7 @@ class _JRLTState extends State<JRLT> {
       theme: JRLTMaterial.getTheme,
       onGenerateRoute: Routes.generateRoute,
       home: const Scaffold(
-        body: LoginPage(),
+        body: ClientesPage(), //LoginPage(),
       ),
     );
   }

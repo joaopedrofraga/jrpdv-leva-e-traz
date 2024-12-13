@@ -39,7 +39,7 @@ class _ElevatedButtonWidgetState extends State<ElevatedButtonWidget> {
                 ? JRLTColors.primaryColor
                 : JRLTColors.secundaryColor),
         child: widget.isLoading
-            ? const CircularProgressIndicator()
+            ? const LinearProgressIndicator()
             : TextWidget.bold(widget.label,
                 color: widget.isPrimary
                     ? JRLTColors.secundaryColor

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:levaetraz/core/functions/show_snackbar_function.dart';
+import 'package:levaetraz/routes.dart';
 
 class LoginValidator {
   static final LoginValidator _singleton = LoginValidator._internal();
@@ -31,6 +32,8 @@ class LoginValidator {
     setIsLoading(false);
     mostrarSnackbar(
         context: context, mensagem: response['mensagem'], isError: false);
+    Navigator.pushNamedAndRemoveUntil(
+        context, Routes.clientes, (route) => false);
   }
 
   Future<Map<String, dynamic>> validarLogin(
