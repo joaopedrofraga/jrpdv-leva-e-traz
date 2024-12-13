@@ -17,14 +17,18 @@ class LoginValidator {
   void validar(
       {required String usuario,
       required String senha,
-      required BuildContext context}) async {
+      required BuildContext context,
+      required Function(bool) setIsLoading}) async {
+    setIsLoading(true);
     final response = await validarLogin(usuario: usuario, senha: senha);
 
     if (response['valido'] == false) {
       mostrarSnackbar(
           context: context, mensagem: response['mensagem'], isError: true);
+      setIsLoading(false);
       return;
     }
+    setIsLoading(false);
     mostrarSnackbar(
         context: context, mensagem: response['mensagem'], isError: false);
   }
