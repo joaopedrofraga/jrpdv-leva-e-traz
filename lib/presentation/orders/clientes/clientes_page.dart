@@ -34,6 +34,22 @@ class _ClientesPageState extends State<ClientesPage> {
     }
   }
 
+  bool isNull(dynamic data) {
+    return data == null;
+  }
+
+  Column buildCliente(String label, dynamic data) {
+    return Column(
+      children: isNull(data)
+          ? []
+          : [
+              const Divider(),
+              TextWidget.bold(label),
+              TextWidget.normal(data),
+            ],
+    );
+  }
+
   @override
   void initState() {
     buscarClientes();
@@ -61,15 +77,20 @@ class _ClientesPageState extends State<ClientesPage> {
             : todosClientes.isEmpty
                 ? Center(child: TextWidget.normal('Nenhum cliente encontrado.'))
                 : ListView.builder(itemBuilder: (context, index) {
+                    Cliente cliente = todosClientes[index];
                     return ExpansionTile(
-                        title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      title: TextWidget.bold(cliente.nome.toUpperCase()),
+                      subtitle: isNull(cliente.cnpfCpf)
+                          ? null
+                          : TextWidget.normal(cliente.cnpfCpf!),
                       children: [
-                        TextWidget.bold(
-                            todosClientes[index].nome.toUpperCase()),
-                        TextWidget.normal(todosClientes[index].cnpfCpf ?? '')
+                        buildCliente('CÓDIGO', cliente.codigo),
+                        buildCliente('FANTASIA', cliente.fantasia),
+                        buildCliente('CEP', cliente.cep),
+                        buildCliente('CIDADE', cliente.cidade),
+                        buildCliente('ENDEREÇO', cliente.endereco),
                       ],
-                    ));
+                    );
                   }));
   }
 }
