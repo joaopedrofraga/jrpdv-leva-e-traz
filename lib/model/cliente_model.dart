@@ -44,7 +44,7 @@ class Cliente {
       cidade: json['cidade'],
       bairro: json['bairro'],
       endereco: json['endereco'],
-      numero: json['numero'],
+      numero: json['numender'],
       complemento: json['complemento'],
       cnpfCpf: json['cnpj_cpf'],
       telefone: json['fone'],
