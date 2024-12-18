@@ -7,7 +7,7 @@ void mostrarSnackbar(
     required String mensagem,
     required bool isError}) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 1),
+      duration: Duration(seconds: isError ? 4 : 1),
       elevation: 7,
       content: TextWidget.bold(mensagem,
           color: JRLTColors.secundaryColor, textAlign: TextAlign.center),

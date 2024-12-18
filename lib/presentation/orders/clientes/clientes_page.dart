@@ -166,21 +166,9 @@ class _ClientesPageState extends State<ClientesPage> {
                                                 'CELULAR:     ${cliente.celular}'),
                                           const Divider(),
                                           const SizedBoxWidget.md(),
-                                          Row(
-                                            children: [
-                                              Expanded(
-                                                child: ElevatedButtonWidget(
-                                                    label: 'ENVIAR PEDIDO',
-                                                    onPressed: () {}),
-                                              ),
-                                              const SizedBoxWidget.md(),
-                                              Expanded(
-                                                child: ElevatedButtonWidget(
-                                                    label: 'RECEBER PEDIDO',
-                                                    onPressed: () {}),
-                                              ),
-                                            ],
-                                          )
+                                          ElevatedButtonWidget(
+                                              label: 'GERAR ENTREGA/COLETA',
+                                              onPressed: () {}),
                                         ]),
                                   ),
                                 ],
